@@ -1,0 +1,2 @@
+Django~=3.2.1
+django_google_maps~=0.12.4

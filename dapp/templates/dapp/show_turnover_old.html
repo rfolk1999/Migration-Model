@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add a default marker to a web map</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+<div id="map"></div>
+ 
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoicmZvbGsiLCJhIjoiY2tvbGQ5MzRjMGVkMDJxcm10a2xka3ZkNCJ9.XbPZfmsomS2tbXSDkCAcUw';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [73.095458, 49.794709],
+zoom: 13
+});
+ 
+ 
+// Create a default Marker, colored black
+var marker1 = new mapboxgl.Marker({ color: 'black'})
+.setLngLat([73.093087, 49.793894])
+.addTo(map);
+
+var marker2 = new mapboxgl.Marker({ color: 'black'})
+.setLngLat([73.092198, 49.797061])
+.addTo(map);
+
+var marker3 = new mapboxgl.Marker({ color: 'black'})
+.setLngLat([73.087256, 49.804218])
+.addTo(map);
+
+map.addControl(
+new MapboxDirections({
+accessToken: mapboxgl.accessToken
+}),
+'top-left'
+);
+
+</script>
+ 
+</body>
+</html>
