@@ -34,30 +34,33 @@ def show_charts(request):
 
 def show_tables(request):
     """ data = CorMatrix.objects
-    fp = open('C:\games\characteristics.xls', "rb");
+    fp = open('C:\games\cortables.xls', "rb");
     response = HttpResponse(fp.read());
     fp.close();
-    file_type = mimetypes.guess_type('C:\games\characteristics.xls');
+    file_type = mimetypes.guess_type('C:\games\cortables.xls');
     if file_type is None:
         file_type = 'application/octet-stream';
     response['Content-Type'] = file_type
-    response['Content-Length'] = str(os.stat('C:\games\characteristics.xls').st_size);
-    response['Content-Disposition'] = "attachment; filename=characteristics.xls";
-    return response; """
-    return render(request, 'dapp/show_charts.html', {})  
+    response['Content-Length'] = str(os.stat('C:\games\cortables.xls').st_size);
+    response['Content-Disposition'] = "attachment; filename=cortables.xls"; """
+    return render(request, 'dapp/show_tables.html', {})  
     
-def show_character(request):
+def load_table(request):
     data = CorMatrix.objects
-    fp = open('C:\games\matrices.xls', "rb");
+    fp = open('C:\games\cortables.xls', "rb");
     response = HttpResponse(fp.read());
     fp.close();
-    file_type = mimetypes.guess_type('C:\games\matrices.xls');
+    file_type = mimetypes.guess_type('C:\games\cortables.xls');
     if file_type is None:
         file_type = 'application/octet-stream';
     response['Content-Type'] = file_type
-    response['Content-Length'] = str(os.stat('C:\games\matrices.xls').st_size);
-    response['Content-Disposition'] = "attachment; filename=correspondense.xls";
+    response['Content-Length'] = str(os.stat('C:\games\cortables.xls').st_size);
+    response['Content-Disposition'] = "attachment; filename=cortables.xls";
     return response;
+
+def show_character(request):
+    return render(request, 'dapp/show_characteristics.html', {})  
+    
     """ data = CorMatrix.objects
     fp = open('C:\games\characteristics.xls', "rb");
     response = HttpResponse(fp.read());
@@ -69,7 +72,32 @@ def show_character(request):
     response['Content-Length'] = str(os.stat('C:\games\characteristics.xls').st_size);
     response['Content-Disposition'] = "attachment; filename=characteristics.xls";
     return response; """
+def load_characteristics(request):
+    data = CorMatrix.objects
+    fp = open('C:\games\characteristics.xls', "rb");
+    response = HttpResponse(fp.read());
+    fp.close();
+    file_type = mimetypes.guess_type('C:\games\characteristics.xls');
+    if file_type is None:
+        file_type = 'application/octet-stream';
+    response['Content-Type'] = file_type
+    response['Content-Length'] = str(os.stat('C:\games\characteristics.xls').st_size);
+    response['Content-Disposition'] = "attachment; filename=characteristics.xls";
+    return response;
 
 def show_criterion(request):
-    return render(request, 'dapp/show_tables.html', {}) 
+    return render(request, 'dapp/show_criterion.html', {}) 
+
+def load_criterion(request):
+    data = CorMatrix.objects
+    fp = open('C:\games\calc.xls', "rb");
+    response = HttpResponse(fp.read());
+    fp.close();
+    file_type = mimetypes.guess_type('C:\games\calc.xls');
+    if file_type is None:
+        file_type = 'application/octet-stream';
+    response['Content-Type'] = file_type
+    response['Content-Length'] = str(os.stat('C:\games\calc.xls').st_size);
+    response['Content-Disposition'] = "attachment; filename=calc.xls";
+    return response;
     

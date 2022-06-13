@@ -7,6 +7,9 @@ urlpatterns = [
     path('/matrices', views.show_matrices, name='show_matrices'),
     path('/tables', views.show_tables, name='show_tables'),
     path('/characteristics', views.show_character, name='show_character'),
-    path('/criterion', views.show_tables, name='show_criterion'),
+    path('/criterion', views.show_criterion, name='show_criterion'),
+    path('/download', views.load_table, name='load_table'),
+    path('/download_char', views.load_characteristics, name='load_characteristics'),
+    path('/load_criterion', views.load_criterion, name='load_criterion'),
 
 ]
